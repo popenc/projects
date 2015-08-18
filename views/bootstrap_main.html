@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>sensors!</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="startbootstrap-freelancer/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="startbootstrap-freelancer/css/freelancer.css" rel="stylesheet">
+    <link href="stylesheets/main.css" rel="stylesheet">
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <script src="scripts/jquery-1.11.3.js"></script>
+    <script src="scripts/jqplot/jquery.jqplot.js"></script>
+
+    <!-- Custom Fonts -->
+    <link href="startbootstrap-freelancer/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- FLOT -->
+    <script language="javascript" type="text/javascript" src="scripts/flot/jquery.flot.js"></script>
+    <script language="javascript" type="text/javascript" src="scripts/flot/jquery.flot.time.js"></script>
+    <script language="javascript" type="text/javascript" src="scripts/flot/jquery.flot.axislabels.js"></script>
+    <script language="javascript" type="text/javascript" src="scripts/flot/jquery.flot.navigate.js"></script>
+
+    <!-- SOCKET.IO -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- Misc. Libraries -->
+    <script src="scripts/momentjs/moment.js"></script>
+    <script src="scripts/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+    <!-- // <script src="scripts/flot_plot_time.js"></script> -->
+    <script src="scripts/flot_plot_time2.js"></script>
+    <script src="scripts/ws_client.js"></script>
+    
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">sensors!</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">about</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- <img class="img-responsive" src="startbootstrap-freelancer/img/profile.png" alt=""> -->
+                    <img class="img-responsive" src="images/awake-cover.fw.png" alt="">
+                    <div class="intro-text">
+                        <span class="name">sensors!</span>
+                        <hr class="star-light">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-4 portfolio-item">
+                    <a class="btn btn-lg sensor-btn portfolio-link" href="#portfolioModal1" data-toggle="modal">
+                        <h3>temperature</h3>
+                    </a>
+                    <br>
+                    <!-- <div id="chartdiv"></div> -->
+                
+                
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- About Section -->
+    <section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>about</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <p>This is a web app for maintaining sensors. Eventually there will be a higher level page that is my "personal homepage" based off the original "freelancer" example. A portfolio section would lead to the sensors page. </p>
+                    <p>The site will have real-time plots of sensor data vs. time by a wide range of intervals (e.g., m.s., s, min, hr, day, m, yr), and with an interactive calendar tied to the plots.</p>
+                    <br>
+                </div>
+                <div class="col-lg-4">
+                     <p>Some sensors currently planned on being used are for temperature (water, ambient, grill hot), humidity (mushrooms, tempeh, ambient).</p>
+                    <br>
+                    <p>It's an attempt to use plenty of meta data/ontological/"internet of things" type business I guess.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>contact me</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>name</label>
+                                <input type="text" class="form-control" placeholder="name" id="name" required data-validation-required-message="Please enter your name.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>email address</label>
+                                <input type="email" class="form-control" placeholder="email address" id="email" required data-validation-required-message="Please enter your email address.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>phone number</label>
+                                <input type="tel" class="form-control" placeholder="phone number" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>message</label>
+                                <textarea rows="5" class="form-control" placeholder="message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-success btn-lg">send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        copyright &copy; sensors! 2015
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+
+
+    <!-- Portfolio Modals -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <!-- <div class="col-lg-8 col-lg-offset-2"> -->
+                    <div class="modal-body">
+                        <h2>temperature</h2>
+                        <hr class="star-primary">
+                        <br><br>
+                        <div class="col-md-8">
+
+                            <!-- PLOT AND STUFF GOES HERE -->
+
+                            <div id="content">
+
+                                <div class="demo-container">
+                                    <div id="placeholder" style="height:450px;width:650px;" class="demo-placeholder"></div>
+                                </div>
+
+                                <br>
+                                <!-- <p>time between updates: <input id="updateInterval" type="text" value="" style="text-align: right; width:5em"> milliseconds</p> -->
+
+                            </div>
+
+                            <div id="plot-nav">
+                                <div class="row">
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-4">
+                                        <label>x-min</label>
+                                        <select class="form-control">
+                                          <option>-200</option><option>-150</option><option>-100</option><option>-50</option><option>-25</option><option>-10</option><option>-5</option><option selected="selected">0</option><option>5</option><option>10</option><option>25</option><option>50</option><option>100</option><option>150</option><option>200</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label>x-min</label>
+                                        <select class="form-control">
+                                          <option>-200</option><option>-150</option><option>-100</option><option>-50</option><option>-25</option><option>-10</option><option>-5</option><option selected="selected">0</option><option>5</option><option>10</option><option>25</option><option>50</option><option>100</option><option>150</option><option>200</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3"></div>
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-4">
+                                        <label>y-min</label>
+                                        <select class="form-control">
+                                            <option>-200</option><option>-150</option><option>-100</option><option>-50</option><option>-25</option><option>-10</option><option>-5</option><option selected="selected">0</option><option>5</option><option>10</option><option>25</option><option>50</option><option>100</option><option>150</option><option>200</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label>y-min</label>
+                                        <select class="form-control">
+                                          <option>-200</option><option>-150</option><option>-100</option><option>-50</option><option>-25</option><option>-10</option><option>-5</option><option selected="selected">0</option><option>5</option><option>10</option><option>25</option><option>50</option><option>100</option><option>150</option><option>200</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <!-- <div class="col-lg-12"> -->
+                                <!-- <div class="col-lg-6"> -->
+                                    <!-- <div class="form-group controls"> -->
+                                        <!-- <input type="text" class="form-control" placeholder="set timer"> -->
+                                    <!-- </div> -->
+                                <!-- </div> -->
+                                <!-- <div class="col-lg-6"> -->
+                                    <!-- <select class="form-control" id="sel1"> -->
+                                      <!-- <option>seconds</option> -->
+                                      <!-- <option>minutes</option> -->
+                                      <!-- <option>hours</option> -->
+                                    <!-- </select> -->
+                                <!-- </div> -->
+                            <!-- </div> -->
+                            <div class="col-lg-6 col-lg-offset-3">
+                                <!-- <div class="col-lg-6"> -->
+                                    <!-- <div class="form-group controls"> -->
+                                <label>enter data interval:</label>
+                                <input id="data-interval" type="text" class="form-control" placeholder="seconds">
+                                <div class="error-msg" style="display:none;">value must be between 1 - 30</div>
+                                <br>
+                                    <!-- </div> -->
+                                <!-- </div> -->
+                            </div>
+                            <div class="col-lg-12">
+                                <button id="start-btn" type="button" class="btn btn-default" style="max-width:400px;">start</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <button id="stop-btn" type="button" class="btn btn-default" style="max-width:400px;">stop</button>
+                                <br><br>
+                                <h3>current temp</h3>
+                                <h3 id="temp-val" style="display:inline-block;">00.0</h3><h3 style="display:inline-block;">&deg;F</h3>
+                            </div>
+                            <div class="col-lg-12">
+                                <br><br>
+                                <div class="col-lg-6">
+                                    <h3>start</h3>
+                                    <h3 id="start-time">00:00:00</h3>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h3>end</h3>
+                                    <h3 id="end-time">00:00:00</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="startbootstrap-freelancer/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="startbootstrap-freelancer/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="startbootstrap-freelancer/js/classie.js"></script>
+    <script src="startbootstrap-freelancer/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="startbootstrap-freelancer/js/jqBootstrapValidation.js"></script>
+    <script src="startbootstrap-freelancer/js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="startbootstrap-freelancer/js/freelancer.js"></script>
+
+</body>
+
+</html>

@@ -2,13 +2,9 @@
 var port = 8000;
 var express    = require('express');        // call express
 var app        = express();    // define our app using express
-// var server = app.listen(8888);
 var server = app.listen(port, '192.168.1.2'); // attempting to host on LAN
 // var server = app.listen(80, '0.0.0.0'); // attempting to host on LAN
 var io = require('socket.io').listen(server);
-
-//MONGODB
-// var MongoClient = require('mongodb').MongoClient;
 
 app.set('views', './views');
 app.set('view engine', 'jade');
