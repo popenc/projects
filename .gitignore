@@ -20,7 +20,7 @@ Icon^M^M
 *.pem
 *.wsgi
 /node_modules
-secrets.js
+static/scripts/secrets.js
 
 # Compiled source #
 ###################
