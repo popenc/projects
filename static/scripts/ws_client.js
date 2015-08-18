@@ -1,7 +1,13 @@
 $(document).ready(function() {
 
 	// var socket = io.connect('http://localhost:8888');
-	var socket = io.connect('http://192.168.1.6:8000');
+
+	var ip, port;
+	$('head').append('<script src="scripts/internet.js"></script>');
+	ip = stuff['IP'];
+	port = stuff['PORT'];
+
+	var socket = io.connect('http://' + ip + ':' + port);
 
 	socket.on('connect', function (data) {
 	  	console.log("client connected");
