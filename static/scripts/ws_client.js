@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	// var socket = io.connect('http://localhost:8888');
-	var socket = io.connect('http://192.168.1.2:8000');
+	var socket = io.connect('http://192.168.1.6:8000');
 
 	socket.on('connect', function (data) {
 	  	console.log("client connected");
