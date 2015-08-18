@@ -19,6 +19,7 @@ Icon^M^M
 .idea
 *.pem
 *.wsgi
+/node_modules
 
 # Compiled source #
 ###################
