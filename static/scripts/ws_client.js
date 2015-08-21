@@ -3,8 +3,8 @@ $(document).ready(function() {
 	var ip, port;
 	$('head').append('<script src="../../settings.js"></script>');
 	// var local_settings = require('')
-	ip = stuff['IP'];
-	port = stuff['PORT'];
+	ip = settings['IP'];
+	port = settings['PORT'];
 
 
 
