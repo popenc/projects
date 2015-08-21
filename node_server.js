@@ -1,9 +1,8 @@
 // packages
-var port = 8000;
-var express    = require('express');        // call express
-var app        = express();    // define our app using express
-var server = app.listen(port, '192.168.1.2'); // attempting to host on LAN
-// var server = app.listen(80, '0.0.0.0'); // attempting to host on LAN
+var express    = require('express'); // call express
+var app        = express(); // define our app using express
+var settings = require('./settings'); // config file for varying devices
+var server = app.listen(settings.PORT, settings.IP); // attempting to host on LAN
 var io = require('socket.io').listen(server);
 
 app.set('views', './views');
@@ -116,6 +115,7 @@ io.on('connection', function(socket) {
 
 });
 
-console.log('> listening on port ' + port);
+console.log('> hosting at ' + settings.IP);
+console.log('> listening on port ' + settings.PORT);
 
 

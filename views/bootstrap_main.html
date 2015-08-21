@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,45 +11,33 @@
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="startbootstrap-freelancer/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="startbootstrap-freelancer/css/freelancer.css" rel="stylesheet">
     <link href="stylesheets/main.css" rel="stylesheet">
 
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
     <script src="scripts/jquery-1.11.3.js"></script>
-    <script src="scripts/jqplot/jquery.jqplot.js"></script>
 
     <!-- Custom Fonts -->
     <link href="startbootstrap-freelancer/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-
     <!-- FLOT -->
     <script language="javascript" type="text/javascript" src="scripts/flot/jquery.flot.js"></script>
     <script language="javascript" type="text/javascript" src="scripts/flot/jquery.flot.time.js"></script>
     <script language="javascript" type="text/javascript" src="scripts/flot/jquery.flot.axislabels.js"></script>
     <script language="javascript" type="text/javascript" src="scripts/flot/jquery.flot.navigate.js"></script>
+    <script language="javascript" type="text/javascript" src="scripts/flot/jquery.flot.resize.js"></script>
 
     <!-- SOCKET.IO -->
     <script src="/socket.io/socket.io.js"></script>
 
     <!-- Misc. Libraries -->
     <script src="scripts/momentjs/moment.js"></script>
-    <script src="scripts/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
-    <!-- // <script src="scripts/flot_plot_time.js"></script> -->
     <script src="scripts/flot_plot_time2.js"></script>
     <script src="scripts/ws_client.js"></script>
-    
-
 </head>
 
 <body id="page-top" class="index">
@@ -97,7 +83,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <!-- <img class="img-responsive" src="startbootstrap-freelancer/img/profile.png" alt=""> -->
-                    <img class="img-responsive" src="images/awake-cover.fw.png" alt="">
+                    <img class="img-responsive" src="images/awake-cover.fw.png" alt="tycho awake album cover">
                     <div class="intro-text">
                         <span class="name">sensors!</span>
                         <hr class="star-light">
@@ -114,9 +100,10 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-sm-4 portfolio-item">
+                <div class="col-sm-4">
                     <a class="btn btn-lg sensor-btn portfolio-link" href="#portfolioModal1" data-toggle="modal">
-                        <h3>temperature</h3>
+                        <!-- <h3>temperature</h3> -->
+                        <img src="images/brew.png" alt="beer mug">
                     </a>
                     <br>
                     <!-- <div id="chartdiv"></div> -->
@@ -257,7 +244,15 @@
                             <div id="content">
 
                                 <div class="demo-container">
-                                    <div id="placeholder" style="height:450px;width:650px;" class="demo-placeholder"></div>
+                                    <!-- <div id="placeholder" style="height:450px;width:650px;" class="demo-placeholder"></div> -->
+                                    <div id="placeholder" style="width:100%;height:350px;"></div>
+                                    <script>
+                                        // set size of plot <div>
+                                        var doc_height = $(window).height();
+                                        // var doc_width = $(window).width();
+                                        $('#placeholder').height(0.5 * doc_height);
+                                        // $('#placeholder').width(doc_width);
+                                    </script>
                                 </div>
 
                                 <br>
@@ -353,8 +348,6 @@
         </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="startbootstrap-freelancer/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="startbootstrap-freelancer/js/bootstrap.min.js"></script>

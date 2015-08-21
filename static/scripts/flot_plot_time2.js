@@ -8,6 +8,11 @@ var updateUnit = $('#data-intv-sel').find(":selected").text(); //should get init
 var updateInterval = getValueInSeconds(updateValue, updateInterval);
 
 
+// NOTE: Bootstrap responsive <div> size for flot plot is needed.
+// 
+
+
+
 // set xmin/max and ymin/max based on user inputs
 // remove set timer amount and have it take data indefinitely
 // until the stop button is pressed or the max size is reached.

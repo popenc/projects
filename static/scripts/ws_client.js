@@ -1,11 +1,12 @@
 $(document).ready(function() {
 
-	// var socket = io.connect('http://localhost:8888');
-
 	var ip, port;
-	$('head').append('<script src="scripts/internet.js"></script>');
+	$('head').append('<script src="../../settings.js"></script>');
+	// var local_settings = require('')
 	ip = stuff['IP'];
 	port = stuff['PORT'];
+
+
 
 	var socket = io.connect('http://' + ip + ':' + port);
 
