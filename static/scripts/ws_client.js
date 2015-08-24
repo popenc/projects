@@ -1,10 +1,12 @@
 $(document).ready(function() {
 
 	var ip, port;
-	$('head').append('<script src="../../settings.js"></script>');
+	// $('head').append('<script src="../../settings.js"></script>');
 	// var local_settings = require('')
-	ip = settings['IP'];
-	port = settings['PORT'];
+	// ip = settings['IP'];
+	// port = settings['PORT'];
+	ip = '192.168.1.2';
+	port = '8000';
 
 
 

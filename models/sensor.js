@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 
 // create a schema
 var sensorSchema = new Schema({
+  id: { type: String, required: true, unique: true },
   name: { type: String, required: true }, // general name of sensor (e.g., grill temp, oyster hum, etc.)
   location: { type: String, default: "nowhere" }, // where the sensor is (gps, kitchen, etc.)
   application: { type: String, default: "" }, // what the sensor is used for
