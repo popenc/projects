@@ -16,44 +16,31 @@ app.get('/home', function(req, res) {
 });
 
 mongoose.connect('mongodb://localhost/sensors', function (err) {
-	if (err) throw err;
-
-	// what to do when open
-	console.log("> database opened");
-	var Sensor = require('./models/sensor'); // get Sensor schema
-	var brew_sensor = new Sensor({
-		name: "brew sensor", // general name of sensor (e.g., grill temp, oyster hum, etc.)
-		location: "kitchen", // where the sensor is (gps, kitchen, etc.)
-		application: "measuring brew temperature during multiple stages", // what the sensor is used for
-		data: {
-			values: new [], // list of timestamp,value pairs for plotting
-			units: "fahrenheit", // units of measurement (e.g., degF)
-			triggers: [{
-				time: "",
-				trigger: "" // any notable events with timestamp ('event' already taken)
-			}]
-		}
-		// meta: {
-		// 	description: String,
-		// 	created: String,
-		// 	sensor_id: String, // sensor's part number (e.g., LM335)
-		// 	datasheet: String // link to datasheet, or actual datasheet (depends on memory)
-		// }
-	});
-	console.log("saving " + brew_sensor + " to db");
-	brew_sensor.save(function (err, brew_sensor) {
-		if (err) return console.error(err);
-	});
+	if (err) {
+		console.log("mongodb error: " + err);
+		return;
+	}
 });
-// var db = mongoose.connection;
-// console.log(db);
-// db.on('error', function(err) {
-// 	console.log('mongodb error: ' + err);
-// });
+
+// what to do when open
+console.log("> database opened");
+var Sensor = require('./models/sensor'); // get Sensor schema
+console.log("sensor object declared");
+
+// see if sensor exist in db
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error: '));
+db.once('open', function (callback) {
+	console.log("database is open!");
+	console.log(callback);
+});
 
 io.on('connection', function(socket) {
 
 	console.log("> connected to client: " + socket.id);
+
+	// var brew_sensor = Sensor.find({id: "S01"});
+	// console.log("brew_sensor: " + brew_sensor);
 
 	var serial_data = "";
 
@@ -111,6 +98,35 @@ io.on('connection', function(socket) {
 					'data': serial_data
 				};
 
+				var upsertData = {
+						"time": current_time,
+						"temp": serial_data
+				};
+
+				Sensor.find({id: "S01"}, function (err, docs) {
+					if (!docs.length) { 
+						var sensor01 = new Sensor({
+							"id": "S01",
+							"name": "brewing thermometer", // general name of sensor (e.g., grill temp, oyster hum, etc.)
+							"location": "kitchen", // where the sensor is (gps, kitchen, etc.)
+							"application": "water and mash temperature", // what the sensor is used for
+						});
+						sensor01.save(function (err) {
+							if (err) console.log("error saving : " + err);
+						});
+					}
+					else {
+						console.log("they docs: " + docs);
+						db.collection('sensors').update({id: "S01"}, {$push: {"data.values": upsertData}}, {upsert: true, safe: true}, 
+							function (err, doc) {
+								if (err) return console.log("db update err: " + err);
+								console.log("saved");
+							}
+						);
+					}
+				});
+				
+
 				console.log("-----------------");
 				console.log(JSON.stringify(jsonData));
 
@@ -132,7 +148,6 @@ io.on('connection', function(socket) {
 		}
 
 	});
-
 
 	
 

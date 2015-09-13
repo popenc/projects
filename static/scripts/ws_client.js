@@ -5,9 +5,13 @@ $(document).ready(function() {
 	// var local_settings = require('')
 	// ip = settings['IP'];
 	// port = settings['PORT'];
-	ip = '192.168.1.2';
+	// ip = '192.168.1.2';
+	ip = 'localhost';
 	port = '8000';
 
+	$('#brew-carousel').carousel({
+		interval: 0
+	});
 
 
 	var socket = io.connect('http://' + ip + ':' + port);
