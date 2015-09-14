@@ -1,0 +1,81 @@
+// main
+
+doctype html
+html(lang="en")
+
+	head
+
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+		meta(name="description", content="")
+		meta(name="author", content="")
+
+		title projects!
+
+		include sources
+
+	body#page-top.index
+
+		nav.navbar.navbar-default.navbar-fixed-top
+			.container
+
+			// top-left "sensors!" link
+			.navbar-header.page-scroll
+				button(type="button", class="navbar-toggle", data-toggle="collapse", data-target="#bs-example-navbar-collapse-1")
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a(class="navbar-brand", href="#page-top") sensors!
+
+			// top-right "about" and "contact" links
+			#bs-example-navbar-collapse-1.collapse.navbar-collapse
+			ul(class="nav navbar-nav navbar-right")
+				li(class="hidden")
+					a(href="#page-top") 
+				li(class="page-scroll")
+					a(href="#about") about
+				li(class="page-scroll")
+					a(href="#contact") contact
+
+		header
+			.container
+				.row
+					.col-lg-12
+						img(class="img-responsive", src="images/awake-cover.fw.png", alt="tycho awake album cover")
+						.intro-text
+							span.name sensors!
+							hr.star-light
+
+		// Portfolio Grid Section
+		section#portfolio
+			.container
+				.row
+					.col-sm-4
+						a(class="btn btn-lg sensor-btn portfolio-link", href="#portfolioModal1", data-toggle="modal")
+							img(src="images/brew.png", alt="beer mug")
+						br
+
+		// the about section
+		include about
+
+		// the contact section
+		include contact
+
+		// Footer
+		footer.text-center
+			.footer-below
+				.container
+					.row
+						.col-lg-12
+							| copyright &copy; sensors! 2015
+
+
+		// Scroll to Top Button (Only visible on small and extra-small screen sizes)
+		.scroll-top.page-scroll.visible-xs.visible-sm
+			a(class="btn btn-primary", href="#page-top")
+				i.fa.fa-chevron-up
+
+		// Projects page
+		include projects

@@ -12,7 +12,8 @@ app.set('view engine', 'jade');
 app.use(express.static('static'));
 
 app.get('/home', function(req, res) {
-	res.render('home');
+	// res.render('home');
+	res.render('main'); // load main.jade
 });
 
 mongoose.connect('mongodb://localhost/sensors', function (err) {
