@@ -11,9 +11,15 @@ app.set('view engine', 'jade');
 
 app.use(express.static('static'));
 
-app.get('/home', function(req, res) {
-	// res.render('home');
+app.get('/', function(req, res) {
 	res.render('main'); // load main.jade
+});
+
+app.get('/:project', function (req, res) {
+	var project = req.params.project;
+	if (project == 'beers') {
+		res.render('beers');
+	}
 });
 
 mongoose.connect('mongodb://localhost/sensors', function (err) {

@@ -1,0 +1,67 @@
+//- project template
+//- general content: title, # of slides in carousel, slide title and data
+
+include head.jade
+
+include sources.jade
+
+div(class="portfolio-modal modal fade slick-slide", id="beer-project", tabindex="-1", role="dialog", aria-hidden="true")
+   .modal-content
+       div(class="close-modal" data-dismiss="modal")
+           .lr
+               .rl
+       .container
+           .row
+               .modal-body
+                  h2 beers
+                  //- hr.star-primary
+                  br
+                 .col-md-8
+                      //- // adding pills for project navigation:
+                      //- ul.nav.nav-pills
+                      //-   li(role="presentation", class="active")
+                      //-     a(href="#")
+                      //-       | New beer..
+                      //-   li(role="presentation", class="active")
+                      //-     a(href="#")
+                      //-       | Old beers..
+                      a(class="btn btn-lg beer-btn portfolio-link", href="/new", data-toggle="modal")
+                      br
+                      br
+
+                      // PLOT AND STUFF GOES HERE
+                      #content
+                         .demo-container
+                              div(id="placeholder" style="width:100%;height:350px;")
+                              script
+                                  // set size of plot <div>
+                                  var doc_height = $(window).height();
+                                  $('#placeholder').height(0.5 * doc_height);
+                          br
+                 .col-md-4
+                     .col-lg-6.col-lg-offset-3
+                          label enter data interval:
+                          input(id="data-interval", type="text", class="form-control", placeholder="seconds")
+                          br
+                     .col-lg-12
+                          button(id="start-btn" type="button" class="btn btn-default" style="max-width:400px;") start
+                          &nbsp; &nbsp; &nbsp; &nbsp;
+                          button(id="stop-btn" type="button" class="btn btn-default" style="max-width:400px;") stop
+                          br
+                          br
+                          
+                          h4(id="temp-val") 00.0 &deg;F
+                          
+                     .col-lg-12
+                          br
+                          br
+                         .col-lg-6
+                              
+                              | start
+                              
+                              |#start-time 00:00:00
+                         .col-lg-6
+                              
+                              | end
+                              
+                              |#end-time 00:00:00
