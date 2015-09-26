@@ -1,33 +1,41 @@
 include head.jade
 include navbar.jade
 
-script(src="scripts/slick_carousel.js")
-
 // +++++ Brewing Projects +++++
 #beer-project.project.col-md-12
   .row.col-md-12
-    h2.project-title beers
+    br
+    h1.project-title beers
+    hr.star-primary
     br
   .row
-    .col-md-8
-        // PLOT AND STUFF GOES HERE
-        #content
-           .demo-container
-                div(id="placeholder" style="width:100%;height:350px;")
-                script
-                    // set size of plot <div>
-                    var doc_height = $(window).height();
-                    $('#placeholder').height(0.5 * doc_height);
-            br
-    .col-md-4
-       .row.col-md-6.col-md-offset-2
-            label enter data interval:
-            input(id="data-interval", type="text", class="form-control", placeholder="seconds")
-            br
-       .row.col-md-6.col-md-offset-2
-            button(id="start-btn" type="button" class="btn btn-default" style="max-width:400px;") start
-            &nbsp; &nbsp; &nbsp; &nbsp;
-            button(id="stop-btn" type="button" class="btn btn-default" style="max-width:400px;") stop
-            br
-            br
-            h4(id="temp-val") 00.0 &deg;F
+    .col-md-2.btn-group-vertical
+      a(href="/beers/new", class="btn project-btn", data-toggle="tooltip", title="create a new beer profile..")
+        | new beer
+      a(href="/beers/brew", class="btn project-btn", data-toggle="tooltip", title="start the brewing process - collect data..")
+        | start beer
+      a(href="/beers/old", class="btn project-btn", data-toggle="tooltip", title="check out previous brews..")
+        | old beer
+
+      //- .col-md-8
+      //-     // PLOT AND STUFF GOES HERE
+      //-     #content
+      //-        .demo-container
+      //-             div(id="placeholder" style="width:100%;height:350px;")
+      //-             script
+      //-                 // set size of plot <div>
+      //-                 var doc_height = $(window).height();
+      //-                 $('#placeholder').height(0.5 * doc_height);
+      //-         br
+      //- .col-md-4
+      //-    .row.col-md-6.col-md-offset-2
+      //-         label enter data interval:
+      //-         input(id="data-interval", type="text", class="form-control", placeholder="seconds")
+      //-         br
+      //-    .row.col-md-6.col-md-offset-2
+      //-         button(id="start-btn" type="button" class="btn btn-default" style="max-width:400px;") start
+      //-         &nbsp; &nbsp; &nbsp; &nbsp;
+      //-         button(id="stop-btn" type="button" class="btn btn-default" style="max-width:400px;") stop
+      //-         br
+      //-         br
+      //-         h4(id="temp-val") 00.0 &deg;F

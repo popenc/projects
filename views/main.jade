@@ -8,7 +8,7 @@ header
 	.container
 		.row
 			.col-lg-12
-				img(class="img-responsive", src="images/awake-cover.png", alt="tycho awake album cover")
+				img(class="img-responsive", src="/images/awake-cover.png", alt="tycho awake album cover")
 				.intro-text
 					span.name projects!
 					hr.star-light
@@ -17,26 +17,18 @@ header
 section#portfolio
 	.container
 		.row
-
-			//- #slideshow
 			.col-sm-3
-				//- a(class="btn btn-lg sensor-btn portfolio-link", href="#beer-project", data-toggle="modal")
 				a(class="btn btn-lg sensor-btn portfolio-link", href="/beers", data-toggle="modal")
 					img(src="images/brew.png", alt="beer mug")
 					br
-					//- | beers
 			.col-sm-3
 				a(class="btn btn-lg sensor-btn portfolio-link", href="#kombucha-project", data-toggle="modal")
-					//- todo: cartoonize image
 					img(src="images/kombucha.png", alt="kombucha jug")
 					br
-					//- | kombucha
 			.col-sm-3
 				a(class="btn btn-lg sensor-btn portfolio-link", href="#gardening-project", data-toggle="modal")
-					//- todo: cartoonize image
 					img(src="images/garden.png", alt="garden")
 					br
-					//- | garden
 
 // the about section
 include about
@@ -57,6 +49,3 @@ footer.text-center
 .scroll-top.page-scroll.visible-xs.visible-sm
 	a(class="btn btn-primary", href="#page-top")
 		i.fa.fa-chevron-up
-
-// Projects page
-//- include projects

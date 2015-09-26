@@ -41,11 +41,21 @@ a.sensor-btn:hover {
 	padding: 2px;
 }
 
-h2.project-title {
+.project-title {
 	text-align: center;
 }
 
 div.project {
 	margin-top: 60px;
 	padding-top: 60px;
+}
+
+a.project-btn {
+	background-color: #2C3E50;
+	color: #FFFFFF;
+	border: 1px solid white;
+}
+
+a.project-btn:hover {
+	background-color: #7cc9b9;
 }

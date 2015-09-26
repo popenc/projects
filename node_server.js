@@ -22,6 +22,11 @@ app.get('/:project', function (req, res) {
 	}
 });
 
+app.get('/beers/new', function (req, res) {
+	// todo: make more general!
+	res.render('beers', {'action': 'new'})
+});
+
 mongoose.connect('mongodb://localhost/sensors', function (err) {
 	if (err) {
 		console.log("mongodb error: " + err);

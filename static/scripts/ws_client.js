@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+	$('[data-toggle="tooltip"]').tooltip();  // initialize pretty tooltips
+
 	var ip, port;
 	// $('head').append('<script src="../../settings.js"></script>');
 	// var local_settings = require('')
