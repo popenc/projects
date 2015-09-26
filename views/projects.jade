@@ -1,0 +1,38 @@
+// Portfolio Modals
+
+#slideshow
+
+  // +++++ Brewing Projects +++++
+  include beers.jade
+  
+  // +++++ Kombucha Projects +++++
+  div(class="portfolio-modal modal fade slick-slide", data-slick-index="1", id="kombucha-project", tabindex="-1", role="dialog", aria-hidden="true")
+    .modal-content
+         div(class="close-modal" data-dismiss="modal")
+             .lr
+                 .rl
+         .container
+             .row
+                 .modal-body
+                      h2 kombucha
+                      //- hr.star-primary
+                      br
+                      br
+                      .col-lg-12
+                        | stuff can go here!
+
+  // +++++ Gardening Projects +++++
+  div(class="portfolio-modal modal fade slick-slide", data-slick-index="2", id="gardening-project", tabindex="-1", role="dialog", aria-hidden="true")
+    .modal-content
+         div(class="close-modal" data-dismiss="modal")
+             .lr
+                 .rl
+         .container
+             .row
+                 .modal-body
+                      h2 gardening
+                      //- hr.star-primary
+                      br
+                      br
+                      .col-lg-12
+                        | stuff can go here!

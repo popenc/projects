@@ -1,0 +1,23 @@
+nav.navbar.navbar-default.navbar-fixed-top
+	.container
+		//- top-left "projects!" link
+		.col-md-4
+			.navbar-header.page-scroll
+				button(type="button", class="navbar-toggle", data-toggle="collapse", data-target="#bs-example-navbar-collapse-1")
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a(class="navbar-brand", href="/") projects!
+		.col-md-4
+			#project-name.collpase.navbar-collapse
+		.col-md-4
+			// top-right "about" and "contact" links
+			#bs-example-navbar-collapse-1.collapse.navbar-collapse
+				ul(class="nav navbar-nav navbar-right")
+					li(class="hidden")
+						a(href="#page-top") 
+					li(class="page-scroll")
+						a(href="#about") about
+					li(class="page-scroll")
+						a(href="#contact") contact

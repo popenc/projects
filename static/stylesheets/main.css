@@ -6,6 +6,13 @@ a.sensor-btn {
 	background-color: #2C3E50;
 	/*background-color: #18BC9C;*/
 	color: #FFFFFF;
+	height: 178px;
+	width: 160px;
+}
+
+img.sensor-btn {
+	max-height: 120px;
+	max-width: 120px;
 }
 
 a.sensor-btn:hover {
@@ -32,4 +39,23 @@ a.sensor-btn:hover {
 	color: #999;
 	background-color: #eee;
 	padding: 2px;
+}
+
+.project-title {
+	text-align: center;
+}
+
+div.project {
+	margin-top: 60px;
+	padding-top: 60px;
+}
+
+a.project-btn {
+	background-color: #2C3E50;
+	color: #FFFFFF;
+	border: 1px solid white;
+}
+
+a.project-btn:hover {
+	background-color: #7cc9b9;
 }
