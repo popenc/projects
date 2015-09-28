@@ -1,26 +1,10 @@
 $(document).ready(function() {
 
-	$('[data-toggle="tooltip"]').tooltip();  // initialize pretty tooltips
+	$('[data-toggle="tooltip"]').tooltip();  // initiate tooltips
 
 	var ip, port;
-	// $('head').append('<script src="../../settings.js"></script>');
-	// var local_settings = require('')
-	// ip = settings['IP'];
-	// port = settings['PORT'];
-	// ip = '192.168.1.2';
 	ip = 'localhost';
 	port = '8000';
-
-	// $('.sensor-btn').click(function () {
-	// 	//Carousel attempt, take 2:
-		// $('#slideshow').slick({
-		// 	dots: true,
-		// 	infinite: true,
-		// 	speed: 500,
-		// 	fade: false,
-		// 	cssEase: 'linear'
-		// });
-	// });
 
 	var socket = io.connect('http://' + ip + ':' + port);
 

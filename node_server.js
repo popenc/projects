@@ -12,13 +12,13 @@ app.set('view engine', 'jade');
 app.use(express.static('static'));
 
 app.get('/', function(req, res) {
-	res.render('main'); // load main.jade
+	res.render('main', {'proj_name': ''}); // load main.jade
 });
 
 app.get('/:project', function (req, res) {
 	var project = req.params.project;
 	if (project == 'beers') {
-		res.render('beers');
+		res.render('beers', {'proj_name': 'beers'});
 	}
 });
 
