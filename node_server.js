@@ -5,6 +5,9 @@ var settings = require('./settings'); // config file for varying devices
 var server = app.listen(settings.PORT, settings.IP); // attempting to host on LAN
 var io = require('socket.io').listen(server);
 var mongoose = require('mongoose');
+var tempeh_obj = require('./models/projects'); // project objects
+
+var projects = ['beers', 'tempeh'];
 
 app.set('views', './views');
 app.set('view engine', 'jade');
@@ -20,12 +23,18 @@ app.get('/:project', function (req, res) {
 	if (project == 'beers') {
 		res.render('beers', {'proj_name': 'beers'});
 	}
+	else if (project == 'tempeh') {
+		// console.log("tempeh: ");
+		console.log(tempeh_obj);
+		res.render('tempeh', tempeh_obj);
+	}
 });
 
-app.get('/beers/new', function (req, res) {
-	// todo: make more general!
-	res.render('beers', {'action': 'new'})
-});
+// this part can use the modal stuff!
+// app.get('/beers/new', function (req, res) {
+// 	// todo: make more general!
+// 	res.render('beers', {'action': 'new'})
+// });
 
 mongoose.connect('mongodb://localhost/sensors', function (err) {
 	if (err) {

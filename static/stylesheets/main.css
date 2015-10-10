@@ -54,6 +54,7 @@ a.project-btn {
 	background-color: #2C3E50;
 	color: #FFFFFF;
 	border: 1px solid white;
+	width: 150px; /* TODO: check that this static size isn't a problem on phone */;
 }
 
 a.project-btn:hover {
@@ -68,4 +69,26 @@ a.project-btn:hover {
 #menu {
 	color: #FFFFFF;
 	font-size: 36px;
+}
+
+#project-options {
+	font-size: 1.8em;
+	color: #FFFFFF;
+}
+
+/*#project-link a {
+	width: auto;
+}*/
+
+.hidden {
+	display: none;
+}
+
+.project-link {
+	color: #FFFFFF;
+}
+
+.project-link:hover {
+	color: #18BC9C;
+	text-decoration: none;
 }

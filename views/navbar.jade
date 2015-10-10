@@ -9,16 +9,33 @@ nav.navbar.navbar-default.navbar-fixed-top
 					span.icon-bar
 					span.icon-bar
 				a(class="navbar-brand", href="/") projects!
+
 		.col-md-4
-			#project-name.collpase.navbar-collapse
-				h1.text-center #{proj_name}
+			if proj_name
+				#project-name.collpase.navbar-collapse
+					.row
+						a(href="/#{proj_name}", class="project-link")
+							h1.text-center #{proj_name}
+					//- project options dropdown shenanigans
+					.row.text-center
+						a(href="#", class="dropdown-toggle project-link", data-toggle="dropdown")
+							span.glyphicon.glyphicon-menu-down#project-options
+								ul.dropdown-menu
+									.btn-group-vertical.col-sm-12
+										- var i = 0;
+										for link in links
+											li#project-link
+												a(href="#{link}", class="portfolio-link btn project-btn", id="#{link}")
+													.text-left
+													| #{labels[i]}
+													- i++;
+
 		.col-md-4
 			// top-right "about" and "contact" links
 			.collapse.navbar-collapse
 				ul.nav.navbar-nav.navbar-right
 					li.dropdown
-						a(href="#", class="dropdown-toggle", data-toggle="dropdown") 
-							//- span.glyphicon.glyphicon-align-justify#menu
+						a(href="#", class="dropdown-toggle", data-toggle="dropdown")
 							span.glyphicon.glyphicon-menu-hamburger#menu
 						ul.dropdown-menu
 							li
