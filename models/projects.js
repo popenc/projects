@@ -12,4 +12,16 @@ var tempeh = {
 	'labels': ['new batch', 'realtime data', 'old batches', 'tempeh tales']
 };
 
-module.exports = tempeh;
+var beers = {
+	'proj_name': 'beers',
+	'links': ['#new-batch', '#realtime-data', '#old-batches', '#beer-tales'],
+	'labels': ['new batch', 'realtime data', 'old batches', 'beer tales']
+};
+
+var projects = {
+	'tempeh': tempeh,
+	'beers': beers
+};
+
+// module.exports = tempeh;
+module.exports = projects;

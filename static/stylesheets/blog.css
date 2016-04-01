@@ -105,3 +105,10 @@
   margin-bottom: 20px;
   color: #999;
 }
+
+.blog-pic {
+  max-height: 450px;
+  max-width: 500px;
+  margin: 8px;
+  box-shadow: 5px 5px 15px #323232;
+}

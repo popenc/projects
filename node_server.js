@@ -5,7 +5,7 @@ var settings = require('./settings'); // config file for varying devices
 var server = app.listen(settings.PORT, settings.IP); // attempting to host on LAN
 var io = require('socket.io').listen(server);
 var mongoose = require('mongoose');
-var tempeh_obj = require('./models/projects'); // project objects
+var projects_obj = require('./models/projects'); // project objects
 
 var projects = ['beers', 'tempeh'];
 
@@ -20,13 +20,24 @@ app.get('/', function(req, res) {
 
 app.get('/:project', function (req, res) {
 	var project = req.params.project;
-	if (project == 'beers') {
-		res.render('beers', {'proj_name': 'beers'});
+	res.render(project, projects_obj[project]);
+	// if (project == 'beers') {
+	// 	res.render('beers', {'proj_name': 'beers'});
+	// }
+	// else if (project == 'tempeh') {
+	// 	res.render('tempeh', projects_obj['tempeh']);
+	// }
+});
+
+app.get('/blog/:project', function (req, res) {
+	var project = req.params.project;
+
+	try {
+		console.log("project: " + project);
+		res.render(blog, projects_obj[project]);
 	}
-	else if (project == 'tempeh') {
-		// console.log("tempeh: ");
-		console.log(tempeh_obj);
-		res.render('tempeh', tempeh_obj);
+	catch (err) {
+		console.log(err.message);
 	}
 });
 
