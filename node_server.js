@@ -48,6 +48,7 @@ app.get('/blog/:project', function (req, res) {
 // });
 
 mongoose.connect('mongodb://localhost/sensors', function (err) {
+// mongoose.connect('mongodb://localhost/projects', function (err) {
 	if (err) {
 		console.log("mongodb error: " + err);
 		return;
@@ -76,16 +77,23 @@ io.on('connection', function(socket) {
 
 	var serial_data = "";
 
-	var sp = require("serialport");
-	var SerialPort = sp.SerialPort;
-	var serial = new SerialPort("COM4", {
-		baudrate: 9600, 
-		parser: sp.parsers.readline("\n")
-	});
+	try {
+		var sp = require("serialport");
+		var SerialPort = sp.SerialPort;
+		var serial = new SerialPort("COM4", {
+			baudrate: 9600, 
+			parser: sp.parsers.readline("\n")
+		});
 
-	serial.on('error', function (err) {
-		console.log('> serial error: ' + err);
-	});
+		serial.on('error', function (err) {
+			console.log('> serial error: ' + err);
+		});
+
+	}
+	catch (e) {
+		console.log("error occurred when connecting to serial port");
+		console.log(e);
+	}
 
 	socket.on('error', function (err) {
 		console.log('> socket error: ' + err);
@@ -93,7 +101,7 @@ io.on('connection', function(socket) {
 
 	socket.on('disconnect', function () {
 		console.log("> client " + socket.id + " disconnected");
-		if (serial.isOpen()) {
+		if (serial != null && serial.isOpen()) {
 			serial.close();
 			console.log("> serial port closed");
 		}
@@ -107,7 +115,7 @@ io.on('connection', function(socket) {
 
 		console.log("> start serial event: " + start);
 
-		if (start == true) {
+		if (start == true && serial != null) {
 
 			console.log("> opening serial port");
 
