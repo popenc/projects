@@ -8,14 +8,14 @@ var tempeh = {
 	'post_date': "10 October 2015",
 	'post_content': "",
 	
-	'links': ['#new-batch', '#realtime-data', '#old-batches', '#tempeh-tales'],
-	'labels': ['new batch', 'realtime data', 'old batches', 'tempeh tales']
+	'links': ['#new-batch', '#realtime-data', '#old-batches'],
+	'labels': ['new batch', 'realtime data', 'old batches']
 };
 
 var beers = {
 	'proj_name': 'beers',
-	'links': ['#new-batch', '#realtime-data', '#old-batches', '#beer-tales'],
-	'labels': ['new batch', 'realtime data', 'old batches', 'beer tales']
+	'links': ['#new-batch', '#realtime-data', '#old-batches'],
+	'labels': ['new batch', 'realtime data', 'old batches']
 };
 
 var projects = {

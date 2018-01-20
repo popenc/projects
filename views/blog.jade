@@ -2,6 +2,8 @@
 //- Have a main blog organized by date, then subgrouped by project;
 //- each project will have its own little blog too, but it's
 //- really just the project-related posts from the DB
+include head.jade
+include navbar.jade
 
 .container
 
@@ -13,12 +15,14 @@
 
 	.row
 		.col-sm-12.blog-main
-			.blog-post
-				h2.blog-post-title #{post_title}
-				p.blog-post-meta #{post_date}
-				p.
-					It's a post about tempeh! I found an old cooler
-					in a trashcan behind the house. I'm thinking this could
-					be a great vessel for incubating the tempeh.
-				img(src="/images/tempeh_20151007_123422.jpg", class="blog-pic img-rounded")
-				img(src="/images/tempeh_20151007_123428.jpg", class="blog-pic img-rounded")
+			h2.blog-post-title #{post_title}
+			p.blog-post-meta #{post_date}
+			p.
+				It's a post about tempeh! I found an old cooler
+				in a trashcan behind the house. I'm thinking this could
+				be a great vessel for incubating the tempeh.
+			.row
+				.col-sm-6
+					img(src="/images/tempeh_20151007_123422.jpg", class="blog-pic img-rounded .img-fluid .blog-img img-responsive")
+				.col-sm-6
+					img(src="/images/tempeh_20151007_123428.jpg", class="blog-pic img-rounded .img-fluid .blog-img img-responsive")
