@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>sensors!</title>
+    <title>projects</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="startbootstrap-freelancer/css/bootstrap.min.css" rel="stylesheet">
@@ -42,6 +42,7 @@
 
 <body id="page-top" class="index">
 
+
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -75,7 +76,7 @@
         <!-- /.container-fluid -->
     </nav>
 
-
+    
 
     <!-- Header -->
     <header>
@@ -128,14 +129,12 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
-                    <p>This is a web app for maintaining sensors. Eventually there will be a higher level page that is my "personal homepage" based off the original "freelancer" example. A portfolio section would lead to the sensors page. </p>
-                    <p>The site will have real-time plots of sensor data vs. time by a wide range of intervals (e.g., m.s., s, min, hr, day, m, yr), and with an interactive calendar tied to the plots.</p>
+                    <p>This is a web app for hobbies</p>
                     <br>
                 </div>
                 <div class="col-lg-4">
                      <p>Some sensors currently planned on being used are for temperature (water, ambient, grill hot), humidity (mushrooms, tempeh, ambient).</p>
                     <br>
-                    <p>It's an attempt to use plenty of meta data/ontological/"internet of things" type business I guess.</p>
                 </div>
             </div>
         </div>
@@ -240,87 +239,28 @@
                         <div class="col-md-8">
 
                             <!-- PLOT AND STUFF GOES HERE -->
-
                             <div id="content">
-
                                 <div class="demo-container">
-                                    <!-- <div id="placeholder" style="height:450px;width:650px;" class="demo-placeholder"></div> -->
                                     <div id="placeholder" style="width:100%;height:350px;"></div>
                                     <script>
                                         // set size of plot <div>
                                         var doc_height = $(window).height();
-                                        // var doc_width = $(window).width();
                                         $('#placeholder').height(0.5 * doc_height);
-                                        // $('#placeholder').width(doc_width);
                                     </script>
                                 </div>
-
                                 <br>
-                                <!-- <p>time between updates: <input id="updateInterval" type="text" value="" style="text-align: right; width:5em"> milliseconds</p> -->
-
                             </div>
-
-                            <div id="plot-nav">
-                                <div class="row">
-                                    <div class="col-lg-1"></div>
-                                    <div class="col-lg-4">
-                                        <label>x-min</label>
-                                        <select class="form-control">
-                                          <option>-200</option><option>-150</option><option>-100</option><option>-50</option><option>-25</option><option>-10</option><option>-5</option><option selected="selected">0</option><option>5</option><option>10</option><option>25</option><option>50</option><option>100</option><option>150</option><option>200</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <label>x-min</label>
-                                        <select class="form-control">
-                                          <option>-200</option><option>-150</option><option>-100</option><option>-50</option><option>-25</option><option>-10</option><option>-5</option><option selected="selected">0</option><option>5</option><option>10</option><option>25</option><option>50</option><option>100</option><option>150</option><option>200</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3"></div>
-                                    
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-1"></div>
-                                    <div class="col-lg-4">
-                                        <label>y-min</label>
-                                        <select class="form-control">
-                                            <option>-200</option><option>-150</option><option>-100</option><option>-50</option><option>-25</option><option>-10</option><option>-5</option><option selected="selected">0</option><option>5</option><option>10</option><option>25</option><option>50</option><option>100</option><option>150</option><option>200</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <label>y-min</label>
-                                        <select class="form-control">
-                                          <option>-200</option><option>-150</option><option>-100</option><option>-50</option><option>-25</option><option>-10</option><option>-5</option><option selected="selected">0</option><option>5</option><option>10</option><option>25</option><option>50</option><option>100</option><option>150</option><option>200</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-1"></div>
-                                </div>
-                            </div>
-
                         </div>
+
                         <div class="col-md-4">
-                            <!-- <div class="col-lg-12"> -->
-                                <!-- <div class="col-lg-6"> -->
-                                    <!-- <div class="form-group controls"> -->
-                                        <!-- <input type="text" class="form-control" placeholder="set timer"> -->
-                                    <!-- </div> -->
-                                <!-- </div> -->
-                                <!-- <div class="col-lg-6"> -->
-                                    <!-- <select class="form-control" id="sel1"> -->
-                                      <!-- <option>seconds</option> -->
-                                      <!-- <option>minutes</option> -->
-                                      <!-- <option>hours</option> -->
-                                    <!-- </select> -->
-                                <!-- </div> -->
-                            <!-- </div> -->
+
                             <div class="col-lg-6 col-lg-offset-3">
-                                <!-- <div class="col-lg-6"> -->
-                                    <!-- <div class="form-group controls"> -->
+ 
                                 <label>enter data interval:</label>
                                 <input id="data-interval" type="text" class="form-control" placeholder="seconds">
                                 <div class="error-msg" style="display:none;">value must be between 1 - 30</div>
                                 <br>
-                                    <!-- </div> -->
-                                <!-- </div> -->
+
                             </div>
                             <div class="col-lg-12">
                                 <button id="start-btn" type="button" class="btn btn-default" style="max-width:400px;">start</button>

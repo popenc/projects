@@ -4,32 +4,96 @@ var app        = express(); // define our app using express
 var settings = require('./settings'); // config file for varying devices
 var server = app.listen(settings.PORT, settings.IP); // attempting to host on LAN
 var io = require('socket.io').listen(server);
+var mongoose = require('mongoose');
+var projects_obj = require('./models/projects'); // project objects
+
+var projects = ['beers', 'tempeh'];
 
 app.set('views', './views');
 app.set('view engine', 'jade');
 
 app.use(express.static('static'));
 
-app.get('/home', function(req, res) {
-	res.render('home');
+app.get('/', function(req, res) {
+	res.render('main', {'proj_name': ''}); // load main.jade
+});
+
+app.get('/:project', function (req, res) {
+	var project = req.params.project;
+	res.render(project, projects_obj[project]);
+	// if (project == 'beers') {
+	// 	res.render('beers', {'proj_name': 'beers'});
+	// }
+	// else if (project == 'tempeh') {
+	// 	res.render('tempeh', projects_obj['tempeh']);
+	// }
+});
+
+app.get('/blog/:project', function (req, res) {
+	var project = req.params.project;
+
+	try {
+		console.log("project: " + project);
+		res.render(blog, projects_obj[project]);
+	}
+	catch (err) {
+		console.log(err.message);
+	}
+});
+
+// this part can use the modal stuff!
+// app.get('/beers/new', function (req, res) {
+// 	// todo: make more general!
+// 	res.render('beers', {'action': 'new'})
+// });
+
+mongoose.connect('mongodb://localhost/sensors', function (err) {
+// mongoose.connect('mongodb://localhost/projects', function (err) {
+	if (err) {
+		console.log("mongodb error: " + err);
+		return;
+	}
+});
+
+// what to do when open
+console.log("> database opened");
+var Sensor = require('./models/sensor'); // get Sensor schema
+console.log("sensor object declared");
+
+// see if sensor exist in db
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error: '));
+db.once('open', function (callback) {
+	console.log("database is open!");
+	console.log(callback);
 });
 
 io.on('connection', function(socket) {
 
 	console.log("> connected to client: " + socket.id);
 
+	// var brew_sensor = Sensor.find({id: "S01"});
+	// console.log("brew_sensor: " + brew_sensor);
+
 	var serial_data = "";
 
-	var sp = require("serialport");
-	var SerialPort = sp.SerialPort;
-	var serial = new SerialPort("COM4", {
-		baudrate: 9600, 
-		parser: sp.parsers.readline("\n")
-	});
+	try {
+		var sp = require("serialport");
+		var SerialPort = sp.SerialPort;
+		var serial = new SerialPort("COM4", {
+			baudrate: 9600, 
+			parser: sp.parsers.readline("\n")
+		});
 
-	serial.on('error', function (err) {
-		console.log('> serial error: ' + err);
-	});
+		serial.on('error', function (err) {
+			console.log('> serial error: ' + err);
+		});
+
+	}
+	catch (e) {
+		console.log("error occurred when connecting to serial port");
+		console.log(e);
+	}
 
 	socket.on('error', function (err) {
 		console.log('> socket error: ' + err);
@@ -37,7 +101,7 @@ io.on('connection', function(socket) {
 
 	socket.on('disconnect', function () {
 		console.log("> client " + socket.id + " disconnected");
-		if (serial.isOpen()) {
+		if (serial != null && serial.isOpen()) {
 			serial.close();
 			console.log("> serial port closed");
 		}
@@ -51,7 +115,7 @@ io.on('connection', function(socket) {
 
 		console.log("> start serial event: " + start);
 
-		if (start == true) {
+		if (start == true && serial != null) {
 
 			console.log("> opening serial port");
 
@@ -73,6 +137,35 @@ io.on('connection', function(socket) {
 					'time': current_time,
 					'data': serial_data
 				};
+
+				var upsertData = {
+						"time": current_time,
+						"temp": serial_data
+				};
+
+				Sensor.find({id: "S01"}, function (err, docs) {
+					if (!docs.length) { 
+						var sensor01 = new Sensor({
+							"id": "S01",
+							"name": "brewing thermometer", // general name of sensor (e.g., grill temp, oyster hum, etc.)
+							"location": "kitchen", // where the sensor is (gps, kitchen, etc.)
+							"application": "water and mash temperature", // what the sensor is used for
+						});
+						sensor01.save(function (err) {
+							if (err) console.log("error saving : " + err);
+						});
+					}
+					else {
+						console.log("they docs: " + docs);
+						db.collection('sensors').update({id: "S01"}, {$push: {"data.values": upsertData}}, {upsert: true, safe: true}, 
+							function (err, doc) {
+								if (err) return console.log("db update err: " + err);
+								console.log("saved");
+							}
+						);
+					}
+				});
+				
 
 				console.log("-----------------");
 				console.log(JSON.stringify(jsonData));
@@ -96,7 +189,6 @@ io.on('connection', function(socket) {
 
 	});
 
-
 	
 
 	function addZero(n) {
@@ -117,5 +209,3 @@ io.on('connection', function(socket) {
 
 console.log('> hosting at ' + settings.IP);
 console.log('> listening on port ' + settings.PORT);
-
-

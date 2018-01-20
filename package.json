@@ -1,16 +1,18 @@
 {
-	"name": "sensors",
+	"name": "projects",
 	"version": "0.0.1",
-	"description": "Real-time plots of various sensors",
+	"description": "",
 	"main": "node_server.json",
 	"dependencies": {
-		"express": "4.0.0",
-		"jade": "1.11.0",
-		"socket.io": "1.3.6",
-		"events": "1.0.2"
+		"express": "*",
+		"jade": "*",
+		"socket.io": "*",
+		"events": "*",
+		"mongoose": "*",
+		"redis": "*"
 	},
 	"engines": {
-		"node": "0.12.0"
+		"node": "*"
 	},
 	"author": "nick pope"
 }

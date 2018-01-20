@@ -1,18 +1,17 @@
 $(document).ready(function() {
 
+	$('[data-toggle="tooltip"]').tooltip();  // initiate tooltips
+
 	var ip, port;
-	$('head').append('<script src="../../settings.js"></script>');
-	// var local_settings = require('')
-	ip = settings['IP'];
-	port = settings['PORT'];
-
-
+	ip = 'localhost';
+	port = '8000';
 
 	var socket = io.connect('http://' + ip + ':' + port);
 
 	socket.on('connect', function (data) {
 	  	console.log("client connected");
 	});
+
 
 	// Start button timer event:
 	$('#start-btn').on('click', function() { 
@@ -32,8 +31,8 @@ $(document).ready(function() {
 			socket.emit('serial', true); // send 'serial' event to server
 			socket.emit('delay', delay); // send delay to server
 			socket.on('data', function (data) {
-				$('h3#temp-val').html(data['data']); // display current data on page
-				GetData(data); // plot data
+				$('h3#temp-val').html(data['data'] + '&deg;F'); // display current data on page
+				GetData(data); // plot data (flot plot stuff)
 			});
 		}
 		else {
