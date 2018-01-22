@@ -15,7 +15,9 @@ echo "Git branch = $SOURCE_BRANCH"
 
 if [ "$SOURCE_BRANCH" = 'rpi' ]; then
 	echo "Using 'rpi' branch.."
-	docker build --build-arg port=3000 -t popenc/projects:testing .
+	docker build -t popenc/projects:rpi .
+else
+	docker build -t popenc/projects .
 fi
 
 #docker build --build-arg port=4001 -t popenc/projects:$SOURCE_BRANCH .
