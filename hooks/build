@@ -1,19 +1,18 @@
 #!/bin/bash
 
-# pwd > pwd_file
-# find / > build.files
-# set > build.env
-
-# docker build --build-arg=TEST=222 -t $IMAGE_NAME .
-# Build projects image using using port and git branch as tag:
-#!/bin/bash
-
 # Executes at build-time at dockerhub, and is triggered when a 
 # commit is pushed to github.
 
 # Adds "dev" as build-arg for qed Dockerfile, but only if git branch is "dev":
-if ["$SOURCE_BRANCH" = "rpi"]
-then
+# test "$1" = 'rpi' && (echo "hey")  # this conditional version worked!
+
+# The below conditional works after adding spaces between [ and ]:
+# if [ "$1" = 'rpi' ]; then
+# 	echo "hey"
+# fi
+
+if [ "$SOURCE_BRANCH" = 'rpi' ]; then
 	docker build --build-arg port=3000 -t popenc/projects:testing
 fi
+
 #docker build --build-arg port=4001 -t popenc/projects:$SOURCE_BRANCH .
