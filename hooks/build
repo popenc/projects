@@ -12,10 +12,11 @@
 # fi
 
 echo "Git branch = $SOURCE_BRANCH"
+echo "Docker tag = $DOCKER_TAG"
 
 if [ "$SOURCE_BRANCH" = 'rpi' ]; then
 	echo "Using 'rpi' branch.."
-	docker build -t popenc/projects:rpi .
+	docker build -t popenc/projects:$SOURCE_BRANCH .
 else
 	docker build -t popenc/projects .
 fi
