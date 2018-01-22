@@ -12,7 +12,7 @@
 # commit is pushed to github.
 
 # Adds "dev" as build-arg for qed Dockerfile, but only if git branch is "dev":
-if [$SOURCE_BRANCH = rpi]
+if ["$SOURCE_BRANCH" = "rpi"]
 then
 	docker build --build-arg port=3000 -t popenc/projects:testing
 fi
