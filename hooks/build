@@ -19,7 +19,7 @@ if [ "$SOURCE_BRANCH" = 'rpi' ]; then
 	echo "Using 'rpi' branch.."
 	docker build -t popenc/projects:$SOURCE_BRANCH .
 else
-	docker build -t popenc/projects .
+	docker build -t popenc/projects:$DOCKER_TAG .
 fi
 
 #docker build --build-arg port=4001 -t popenc/projects:$SOURCE_BRANCH .
