@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 # pwd > pwd_file
 # find / > build.files
@@ -6,4 +6,4 @@
 
 # docker build --build-arg=TEST=222 -t $IMAGE_NAME .
 # Build projects image using using port and git branch as tag:
-docker build --build-arg port=4001 -t popenc/projects:$SOURCE_BRANCH
+docker build --build-arg port=4001 -t popenc/projects:$SOURCE_BRANCH .
