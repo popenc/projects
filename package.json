@@ -4,12 +4,13 @@
 	"description": "",
 	"main": "node_server.json",
 	"dependencies": {
-		"express": "*",
-		"pug": "~2.0.0-alpha6",
-		"socket.io": "*",
 		"events": "*",
+		"express": "*",
 		"mongoose": "*",
-		"redis": "*"
+		"pug": "~2.0.0-alpha6",
+		"redis": "*",
+		"serialport": "^6.0.5",
+		"socket.io": "*"
 	},
 	"engines": {
 		"node": "*"

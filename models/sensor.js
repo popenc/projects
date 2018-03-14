@@ -1,7 +1,21 @@
 // sensor object with attributes and functions
 
 var mongoose = require('mongoose');
+var fs = require('fs');
 var Schema = mongoose.Schema;
+
+var imgSchema = new Schema({
+  img: { 
+    data: Buffer,
+    contentType: String,
+    path: String,
+    set: function(imgPath) {
+
+    }
+  }
+});
+
+var Image = mongoose.model('Image', imgSchema);
 
 // create a schema
 var sensorSchema = new Schema({
@@ -11,20 +25,20 @@ var sensorSchema = new Schema({
   application: { type: String, default: "" }, // what the sensor is used for
   data: {
   	values: [{
-      time: { type: String, default: "00-00-00 00:00:00" },
-      temp: { type: Number, default: -99.99 }
-    }], // list of timestamp,value pairs for plotting
+      time: { type: Date, default: Date.now },
+      value: { type: Number, default: -9999 }
+    }],
   	units: { type: String, default: "" }, // units of measurement (e.g., degF)
   	triggers: [{
-  		time: { type: String, default: "" },
+  		time: { type: Date, default: "" },
   		trigger: { type: String, default: "" } // any notable events (watering, stirring, etc.)
   	}],
   },
   meta: {
-    description: { type: String, default: "" }, // more detail on use, etc.
-    sensor_id: { type: String, default: "" }, // sensor's part number (e.g., LM335)
-    datasheet: { type: String, default: "" }, // link to datasheet, or actual datasheet (depends on memory)
-    circuit_diagram: { type: String, default: "" }, // image of circuit diagram
+    description: , // more detail on use, etc.
+    sensor_id: , // sensor's part number (e.g., LM335)
+    datasheet: , // link to datasheet, or actual datasheet (depends on memory)
+    circuit_diagram: 
   }
 });
 

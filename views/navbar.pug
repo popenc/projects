@@ -1,0 +1,26 @@
+// Navigation
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+	.container
+		a(class="navbar-brand", href="#") C H U L A N E T
+		button(class="navbar-toggler", type="button", data-toggle="collapse", data-target="#navbarResponsive", aria-controls="navbarResponsive", aria-expanded="false", aria-label="Toggle navigation")
+			span.navbar-toggler-icon
+		.collapse.navbar-collapse#navbarResponsive
+			ul(class="navbar-nav ml-auto")
+				li(class="nav-item active")
+					a(class="nav-link" href="#") Home
+						span(class="sr-only") (current)
+				li(class="nav-item")
+					a(class="nav-link", href="/blog") Blog
+				li(class="nav-item")
+					a(class="nav-link", href="/chat") Chat
+				li(class="nav-item dropdown")
+					a(class="nav-link dropdown-toggle", href="/projects", data-toggle="dropdown") Projects
+					.dropdown-menu.dropdown-menu-right
+						a(class="dropdown-item" href="/projects/rpi") RPi
+						a(class="dropdown-item" href="/projects/sensors") Sensors
+						a(class="dropdown-item" href="/projects/brewing") Brewing
+						a(class="dropdown-item" href="/projects/kombucha") Kombucha
+				li(class="nav-item")
+					a(class="nav-link", href="/climbing") Climbing
+				//- li(class="nav-item")
+				//- 	a(class="nav-link", href="#") Contact
