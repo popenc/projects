@@ -1,63 +1,70 @@
 // packages
-var express = require('express'); // call express
-var app = express(); // define our app using express
-var settings = require('./settings'); // config file for varying devices
-var server = app.listen(settings.PORT, settings.IP); // attempting to host on LAN
-var io = require('socket.io').listen(server);
-var mongoose = require('mongoose');
-var projects_obj = require('./models/projects'); // project objects
+// const express = require('express'); // call express
+// const app = express(); // define our app using express
 
-app.set('views', './views');
-app.set('view engine', 'pug');
-app.use(express.static('static'));
+const app = require('./app');
+const settings = require('./settings'); // config file for varying devices
+
+const server = app.listen(settings.PORT, settings.IP); // attempting to host on LAN
+const io = require('socket.io').listen(server);
+// const mongoose = require('mongoose');
+const projects_obj = require('./models/projects'); // project objects
+// const routes = require('./routes');
+
+// Moved to app.js..
+// app.set('views', './views');  // set views/template folder
+// app.set('view engine', 'pug');  // set pug for view engine
+// app.use(express.static('public'));  // use /public as static folder
+
+// app.use('/api', routes);
 
 // +++++ URLS Below: +++++
 app.get('/', function(req, res) {
 	res.render('landing', {'proj_name': ''}); // load main.jade
 });
 
-app.get('/blog', function (req, res) {
-	res.render('blog', 
-	{
-		'post_title': "A post title!",
-		'post_date': "22 February 2018, 8:24pm"
-	});
-});
+// app.get('/blog', function (req, res) {
+// 	res.render('blog', 
+// 	{
+// 		'post_title': "A post title!",
+// 		'post_date': "22 February 2018, 8:24pm"
+// 	});
+// });
 
-app.get('/blog/create', function (req, res) {
-	res.render('blog', {'action': 'create'});
-});
+// app.get('/blog/create', function (req, res) {
+// 	res.render('blog', {'action': 'create'});
+// });
 
-app.get('/favicon.ico', (req, res) => {
-	res.status(204);  // send No Content status for favicon.ico
-});
+// app.get('/favicon.ico', (req, res) => {
+// 	res.status(204);  // send No Content status for favicon.ico
+// });
 
-app.get('/:project', function (req, res) {
-	var project = req.params.project;
-	console.log("Project: " + project);
-	res.render(project, projects_obj[project]);
-});
+// app.get('/:project', function (req, res) {
+// 	var project = req.params.project;
+// 	console.log("Project: " + project);
+// 	res.render(project, projects_obj[project]);
+// });
 // ++++++++++++++++++++++++
 
 
-mongoose.connect('mongodb://localhost/sensors', function (err) {
-// mongoose.connect('mongodb://localhost/projects', function (err) {
-	if (err) {
-		console.log("mongodb error: " + err);
-		return;
-	}
-});
+// mongoose.connect('mongodb://localhost/sensors', function (err) {
+// // mongoose.connect('mongodb://localhost/projects', function (err) {
+// 	if (err) {
+// 		console.log("mongodb error: " + err);
+// 		return;
+// 	}
+// });
 
-// var Sensor = require('./models/sensor'); // get Sensor schema
-// console.log("sensor object declared");
+// // var Sensor = require('./models/sensor'); // get Sensor schema
+// // console.log("sensor object declared");
 
-// see if sensor exist in db
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error: '));
-db.once('open', function (callback) {
-	console.log("database is open!");
-	console.log(callback);
-});
+// // see if sensor exist in db
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error: '));
+// db.once('open', function (callback) {
+// 	console.log("database is open!");
+// 	console.log(callback);
+// });
 
 io.on('connection', function(socket) {
 

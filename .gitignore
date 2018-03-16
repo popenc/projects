@@ -49,6 +49,7 @@ static/scripts/secrets.js
 *.log
 *.sql
 *.sqlite
+/data
 
 # OS generated files #
 ######################
