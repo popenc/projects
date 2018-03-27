@@ -1,0 +1,29 @@
+extends layout
+
+//- Page Content:
+block content
+	.container
+		.blog-header
+			h1.blog-title chula blog - edit
+			p.lead.blog-descriptions #{blog_desc}
+			hr
+			br
+
+		.row
+			.col-sm-12.blog-main
+				.input-group
+					label &nbsp;Title
+					input(type="text", id="blog-editor-title")
+
+				br
+				br
+				.input-group
+					label &nbsp;Keywords
+					input(type="text", id="blog-editor-keywords")
+				br
+				br
+				.form-group
+					label(for="blog-editor-content") Content
+					textarea(class="form-control rounded-0", id="blog-content", rows="10")
+				br
+				input(id="blog-editor-submit", type="button", value="Submit")

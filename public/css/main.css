@@ -1,0 +1,113 @@
+body {
+	padding-top: 54px;
+}
+@media (min-width: 992px) {
+	body {
+		padding-top: 56px;
+	}
+}
+
+.home-menu ul {
+	float: left;
+}
+
+a.projects-nav:link {
+	color: rgba(255,255,255,.5);
+}
+a.projects-nav:hover {
+	color: rgba(255,255,255,.3);	
+}
+a.projects-nav:active {
+	color: #FFF;
+}
+
+a.sensor-btn {
+	background-color: #2C3E50;
+	/*background-color: #18BC9C;*/
+	color: #FFFFFF;
+	height: 178px;
+	width: 160px;
+}
+
+img.sensor-btn {
+	max-height: 120px;
+	max-width: 120px;
+}
+
+a.sensor-btn:hover {
+	background-color: #7cc9b9;
+}
+
+.center {
+	float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.error-msg {
+	color: red;
+}
+
+#placeholder .button {
+	position: absolute;
+	cursor: pointer;
+}
+
+#placeholder div.button {
+	font-size: smaller;
+	color: #999;
+	background-color: #eee;
+	padding: 2px;
+}
+
+.project-title {
+	text-align: center;
+}
+
+div.project {
+	margin-top: 60px;
+	padding-top: 60px;
+}
+
+a.project-btn {
+	background-color: #2C3E50;
+	color: #FFFFFF;
+	border: 1px solid white;
+	width: 150px; /* TODO: check that this static size isn't a problem on phone */;
+}
+
+a.project-btn:hover {
+	background-color: #7cc9b9;
+}
+
+#project-name {
+	color: #FFFFFF;
+}
+
+/* the glyphicon */
+#menu {
+	color: #FFFFFF;
+	font-size: 36px;
+}
+
+#project-options {
+	font-size: 1.8em;
+	color: #FFFFFF;
+}
+
+/*#project-link a {
+	width: auto;
+}*/
+
+.hidden {
+	display: none;
+}
+
+.project-link {
+	color: #FFFFFF;
+}
+
+.project-link:hover {
+	color: #18BC9C;
+	text-decoration: none;
+}

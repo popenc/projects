@@ -1,19 +1,37 @@
 {
-	"name": "projects",
-	"version": "0.0.1",
-	"description": "",
-	"main": "node_server.json",
-	"dependencies": {
-		"events": "*",
-		"express": "*",
-		"mongoose": "*",
-		"pug": "~2.0.0-alpha6",
-		"redis": "*",
-		"serialport": "^6.0.5",
-		"socket.io": "*"
-	},
-	"engines": {
-		"node": "*"
-	},
-	"author": "nick pope"
+  "name": "projects",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "mongoose": "^5.0.10",
+    "popper.js": "^1.14.1",
+    "pug": "^2.0.1",
+    "socketio": "^1.0.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "style-loader": "^0.20.3",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.13"
+  },
+  "scripts": {
+    "install": "",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "node server.js",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/popenc/projects.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/popenc/projects/issues"
+  },
+  "homepage": "https://github.com/popenc/projects#readme"
 }

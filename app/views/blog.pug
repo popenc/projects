@@ -1,0 +1,23 @@
+extends layout.pug
+					
+//- Page Content:
+block content
+	.container
+		.blog-header
+			h1.blog-title chula blog
+			p.lead.blog-descriptions #{blog_desc}
+			hr
+			br
+
+		.row
+			.col-sm-12.blog-main
+				each post in posts
+					.blog-post
+						h2.blog-post-title !{post.title}
+						p.blog-post-meta !{post.date} by #{post.author}
+						br
+						p !{post.body}
+						br
+						br
+						br
+						br
