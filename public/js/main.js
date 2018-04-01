@@ -2,7 +2,9 @@
 var bootstrap = require('bootstrap');
 
 // Local JS Requirements..
-var blogEditor = require('./blog-edit');
+var 
+	blogEditor = require('./blog-edit'),
+	chulaChat = require('./chula-chat');
 
 // CSS Requirements..
 require('../css/main.css');

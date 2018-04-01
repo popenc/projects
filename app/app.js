@@ -32,19 +32,27 @@ app
 		res.render('landing');
 	})
 	.get('/blog', (req, res) => {
-			// Display public blog landing page..
-			blogController.readAll().then(function(blogData) {
-				console.log("blog data: " + blogData);
-				res.render('blog', {'posts': blogData});
-			}).catch(function() {
-				res.status(500).send("Error displaying blog page..");
-			});
+		// Display public blog landing page..
+		blogController.readAll().then(function(blogData) {
+			console.log("blog data: " + blogData);
+			res.render('blog', {'posts': blogData});
+		}).catch(function() {
+			res.status(500).send("Error displaying blog page..");
+		});
 	})
 	.get('/blog/edit', (req, res) => {
 		// Display page to create a blog post (admin only)..
 		res.render('blog-edit');
+	})
+	.get('/chat', (req, res) => {
+		res.render('chat');
+	})
+	.get('/climbing', (req, res) => {
+		res.render('climbing');
+	})
+	.get('/projects', (req, res) => {
+		res.render('projects');
 	});
-
 
 
 // Export module..

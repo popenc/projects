@@ -1,19 +1,12 @@
-// const app = require('./app');
-// const config = require('../config'); // config file for varying devices
-// const server = app.listen(config.PORT, config.IP); // attempting to host on LAN
-// const io = require('socket.io').listen(server);
 
-// const socketio = require('socket.io');
 
-// function listen(app) {
-// module.exports.listen = function(app) {
-
-// io = socketio.listen(app);
-// users = io.of('/users');  // what is this?
-
-function start(server) {
+function startWebSocketServer(server) {
 
 	var io = require('socket.io').listen(server);
+	var chatObj = {
+		username: '',
+		message: ''
+	};
 
 	io.on('connection', function(socket) {
 
@@ -27,16 +20,20 @@ function start(server) {
 			console.log("> client " + socket.id + " disconnected");
 		});
 
+		socket.on('chat message', function(msg) {
+			console.log("message: " + msg);
+
+			chatObj.username = socket.id;
+			chatObj.message = msg;
+
+			// io.emit('chat message', msg);
+			io.emit('chat message', JSON.stringify(chatObj));
+		});
+
 	});
 
 }
 
-	// return io;
 
-// }
 
-module.exports = start;
-
-// module.exports = {
-// 	start: start
-// }
+module.exports = startWebSocketServer;
