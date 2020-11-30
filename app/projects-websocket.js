@@ -2,7 +2,7 @@
 
 function startWebSocketServer(server) {
 
-	var io = require('socket.io').listen(server);
+	var io = require('socket.io')(server);
 	var chatObj = {
 		username: '',
 		message: ''
