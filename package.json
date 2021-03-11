@@ -10,7 +10,7 @@
     "mongoose": "^5.10.18",
     "popper.js": "^1.16.1",
     "pug": "^3.0.0",
-    "socket.io": "^3.0.3"
+    "socket.io": "^4.0.0"
   },
   "devDependencies": {
     "css-loader": "^5.0.1",
